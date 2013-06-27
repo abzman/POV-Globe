@@ -1,8 +1,9 @@
 /*
-  Blink
-  Turns on an LED on for one second, then off for one second, repeatedly.
- 
-  This example code is in the public domain.
+  POV globe code
+  
+  re-written June 27, 2013
+  
+  Evan Allen
  */
  
 // the setup routine runs once when you press reset:
@@ -31,28 +32,21 @@ int d = 1800;
 
 void setup() 
 {   
-  for (int i = 0; i<=14; i++)
-    {
-        pinMode(i,OUTPUT);
-    }
+	for (int i = 0; i<=14; i++)
+	{
+		pinMode(i,OUTPUT);
+	}
 }
 
 // the loop routine runs over and over again forever:
 void loop() 
 {
-  for (int c = 0; c<=37; c++)
-    {
-    for (int r = 0; r<=14; r++)
-      {
-         if( worldmap[r][c] == 1)
-           {
-             digitalWrite(r, HIGH);
-           }
-         if( worldmap[r][c] == 0)
-           {
-             digitalWrite(pinnumbers[r], LOW);
-           }
-      }
-      delayMicroseconds(d);
+	for (int c = 0; c<=37; c++)
+	{
+		for (int r = 0; r<=14; r++)
+		{
+			digitalWrite(pinnumbers[r], worldmap[r][c]);
+		}
+		delayMicroseconds(d);
     }
 }
